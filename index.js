@@ -1,32 +1,56 @@
-const express = require("express");
+const express= require("express");
 
-// import routes
-const usersRouter = require("./routes/users");
-const booksRouter = require("./routes/books");
+// import db connection file 
+const DbConnection = require("./databaseConnection");
 
-const app = express();
+// import db
 
-const PORT = 8081;
+const dotenv = require("dotenv");
 
+
+// const {UserModel,BookModel}=require("./models/index");
+
+// calling the users router
+const usersRouter=require("./routes/users");
+const booksRouter=require("./routes/books");
+
+// config the data base using dotenv 
+
+dotenv.config();
+
+// create app variable that use all the methods of express package 
+const app=express();  // for start the server 
+
+// calling the db file 
+
+DbConnection();   // for database connection 
+
+// port number
+const port=8081;
+// in express all data transfer is possible only in json format 
 app.use(express.json());
 
-// npm i nodemon --save-dev
-// const data = ["rohan", "dev"];
-app.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Server is up and running succesfully",
-  });
+// get method 
+app.get("/",(req,res)=>
+{
+    res.status(200).json({
+        message:"Server is up and running successfully "
+    });
 });
 
-// http://localhost:801/users/
-app.use("/users", usersRouter);
-app.use("/books", booksRouter);
+app.use("/users",usersRouter);
+app.use("/books",booksRouter);
 
-app.get("*", (req, res) => {
-  res.status(404).json({
-    message: "This route doesn't exist",
-  });
+
+// for wrong route
+app.get("*",(req,res)=>
+{
+    res.status(404).json({
+        message:"This route does not exist"
+    });
 });
-app.listen(PORT, () => {
-  console.log(`Server is running at port ${PORT}`);
+// to listen the request to the server 
+app.listen(port,()=>
+{
+    console.log(`Node js  server is started on port ${port}`);
 });

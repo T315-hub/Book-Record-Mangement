@@ -1,7 +1,7 @@
 {
   "name": "book-record-management",
   "version": "1.0.0",
-  "description": "Book Record Managemnt Appl",
+  "description": "it store the record the books and users int this project or help to make library routerlication",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,16 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rohan1917/book-record-management.git"
+    "url": "git+https://github.com/T315-hub/Book-Record-Management.git"
   },
-  "author": "rohan",
+  "author": "ankit software engineer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rohan1917/book-record-management/issues"
+    "url": "https://github.com/T315-hub/Book-Record-Management/issues"
   },
-  "homepage": "https://github.com/rohan1917/book-record-management#readme",
+  "homepage": "https://github.com/T315-hub/Book-Record-Management#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
